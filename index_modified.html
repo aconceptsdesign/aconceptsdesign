@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>A-Concepts Design Ltd.</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fdfdfd; }
+        header, footer { background: #222; color: white; text-align: center; padding: 1.5rem; }
+        nav { text-align: center; margin-top: 10px; }
+        nav a { margin: 0 10px; text-decoration: none; color: #555; }
+        section { padding: 2rem; max-width: 1000px; margin: auto; }
+        .gallery img { max-width: 100%; margin: 10px; border-radius: 10px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; }
+        .lang-switch { text-align: center; margin-top: 10px; }
+        .lang-switch button { margin: 0 10px; padding: 5px 10px; }
+        form { display: flex; flex-direction: column; max-width: 400px; margin: auto; }
+        form input, form textarea { margin: 8px 0; padding: 10px; font-size: 1rem; }
+        .pdf-button { display: block; margin: 20px auto; text-align: center; }
+        .pdf-button a { padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A-Concepts Design Ltd.</h1>
+        <p>Interior Design & Home Staging | Vancouver, Canada</p>
+    </header>
+
+    <div class="lang-switch">
+        <button onclick="switchLang('en')">English</button>
+        <button onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <section id="about">
+        <h2 data-en="About Us" data-zh="關於我們">About Us</h2>
+        <p data-en="We specialize in transforming homes into stunning showcases that sell faster and for more."
+           data-zh="我們專注於將房屋轉化為吸引買家的美麗展示空間，加快銷售速度並提高售價。">
+           We specialize in transforming homes into stunning showcases that sell faster and for more.
+        </p>
+    </section>
+
+    <section id="gallery">
+        <h2 data-en="Our Portfolio" data-zh="我們的作品">Our Portfolio</h2>
+        <div class="gallery">
+            <img src="images/1.jpg" alt="Staging 1" />
+            <img src="images/2.jpg" alt="Staging 2" />
+            <img src="images/3.jpg" alt="Staging 3" />
+            <img src="images/4.jpg" alt="Staging 4" />
+            <img src="images/5.jpg" alt="Staging 5" />
+            <img src="images/6.jpg" alt="Staging 6" />
+            <img src="images/7.jpg" alt="Staging 7" />
+            <img src="images/8.jpg" alt="Staging 8" />
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2 data-en="What Clients Say" data-zh="客戶評價">What Clients Say</h2>
+        <p data-en="“A-Concepts transformed our listing—sold in 5 days!”"
+           data-zh="“A-Concepts 幫我們擺設的房子 5 天內就賣出！”">
+           “A-Concepts transformed our listing—sold in 5 days!”
+        </p>
+    </section>
+
+    <section id="faq">
+        <h2 data-en="FAQ" data-zh="常見問題">FAQ</h2>
+        <p><strong data-en="Q: Do you offer free consultations?" data-zh="問：你們提供免費諮詢嗎？">Q: Do you offer free consultations?</strong><br />
+        <span data-en="Yes, we provide free estimates and staging advice." data-zh="是的，我們提供免費估價與建議。">Yes, we provide free estimates and staging advice.</span></p>
+    </section>
+
+    <section id="contact">
+        <h2 data-en="Contact Us" data-zh="聯絡我們">Contact Us</h2>
+        <form action="mailto:aconceptsdesign11@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send" />
+        </form>
+    </section>
+
+    <section class="pdf-button">
+        <a href="quote.pdf" target="_blank" data-en="Download Quote Sheet" data-zh="下載報價單">Download Quote Sheet</a>
+    </section>
+
+    <footer>
+        <p>© A-Concepts Design Ltd. | Vancouver, Canada</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll("[data-en]").forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+</body>
+</html>
